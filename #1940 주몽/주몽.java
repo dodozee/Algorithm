@@ -1,33 +1,42 @@
 import java.io.*;
+import java.nio.Buffer;
 import java.util.*;
-/* 박두지 화이팅! 갓천대 컴공 화이팅!
-[문제 해석 및 풀이]
-*/
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        st = new StringTokenizer(br.readLine());
-        int M = Integer.parseInt(st.nextToken());
+        StringTokenizer st;
 
-        st = new StringTokenizer(br.readLine()," ");
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int i = 0; i < N; i++) {
-            list.add(Integer.parseInt(st.nextToken()));
+        int n = Integer.parseInt(br.readLine());
+        int m = Integer.parseInt(br.readLine());
+
+        int[] arr = new int[n];
+
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < n; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        Collections.sort(list);
-        int count =0;
-        for (int i = 0; i < N; i++) {
-            for (int j = i+1; j < N; j++) {
-                if (list.get(i) + list.get(j)==M) {
-                    count++;
-                }
+        Arrays.sort(arr);
+
+        int left = 0;
+        int right = n - 1;
+        int count = 0;
+        while (left < right) {
+            if (arr[left] + arr[right] < m) {
+                left++;
+            } else if (arr[left] + arr[right] > m) {
+                right--;
+            } else {
+                count++;
+                left++;
+                right--;
             }
         }
-        System.out.println(count);
 
+        System.out.println(count);
     }
 }

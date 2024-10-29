@@ -1,63 +1,83 @@
+
 import java.io.*;
+import java.nio.Buffer;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class Main {//박두지 화이팅!!!
-    static int k;
-    static List<Integer>[] graph;
-    static int[] colors;
 
-    public static void main(String[] args) throws IOException {
+public class Main {
+    static int[] parents;
+    static ArrayList<Integer>[] A;
+    static int[] check;;
+    static boolean[] visited;
+    static boolean IsEven;
+
+    public static void main(String[] args) throws IOException, InterruptedException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        k = Integer.parseInt(br.readLine());
-
-        while (k-- > 0) {
+        StringTokenizer st ;
+        int t = Integer.parseInt(br.readLine());
+        for (int i = 0; i < t; i++) {
             st = new StringTokenizer(br.readLine());
             int v = Integer.parseInt(st.nextToken());
             int e = Integer.parseInt(st.nextToken());
 
-            graph = new List[v+1];
-            colors = new int[v+1];
-            for (int i = 1; i <= v; i++) {
-                graph[i] = new ArrayList<>();
-                colors[i] = 0;
+            A = new ArrayList[v+1];
+            check = new int[v+1];
+            visited = new boolean[v+1];
+            IsEven = true;
+
+            for (int j = 1; j < v + 1; j++) {
+                A[j] = new ArrayList<>();
             }
 
-            for (int i = 0; i < e; i++) {
+            for (int j = 0; j < e; j++) {
                 st = new StringTokenizer(br.readLine());
-                int a = Integer.parseInt(st.nextToken());
-                int b = Integer.parseInt(st.nextToken());
-                graph[a].add(b);
-                graph[b].add(a);
+                int S = Integer.parseInt(st.nextToken());
+                int E = Integer.parseInt(st.nextToken());
+
+                A[S].add(E);
+                A[E].add(S);
             }
 
-            boolean isYesOrNo = true;
-            for (int i = 1; i <= v; i++) {
-                if (colors[i] == 0) {
-                    isYesOrNo = isYesOrNo && bfs(i, 1);
+            for (int j = 1; j <= v; j++) {
+                if (IsEven) {
+                    dfs(j);
+                } else {
+                    break;
                 }
             }
-            System.out.println(isYesOrNo ? "YES" : "NO");
+
+            if(IsEven) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+
         }
     }
 
-    static boolean bfs(int start, int color) {
-        Queue<Integer> q = new LinkedList<>();
-        q.add(start);
-        colors[start] = color;
+    private static void dfs(int x){
 
-        while (!q.isEmpty()) {
-            int cur = q.poll();
-            int nextColor = colors[cur] == 1 ? 2 : 1;
-            for (int next : graph[cur]) {
-                if (colors[next] == 0) {
-                    q.add(next);
-                    colors[next] = nextColor;
-                } else if (colors[next] != nextColor) {
-                    return false;
-                }
+        if(!IsEven) return;
+
+        visited[x] = true;
+
+        for(int node : A[x]){
+            if (check[x] == 0) {
+                check[x] = 1;
+            }
+            if(!visited[node]){
+                check[node] = check[x] * -1;
+                dfs(node);
+            } else if (check[node] == check[x]) {
+                IsEven = false;
+                return;
             }
         }
-        return true;
+
     }
+
 }
+
+

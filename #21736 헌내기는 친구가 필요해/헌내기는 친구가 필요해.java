@@ -35,7 +35,7 @@ public class Main {
             }
 
         }
-        dfs(startX, startY);
+        bfs(startX, startY);
 
 
         if(count == 0) {
@@ -45,11 +45,40 @@ public class Main {
         }
 
     }
+    static void bfs(int x, int y) {
+        visited[x][y] = true;
+        Queue <int[]> que = new ArrayDeque<>();
+
+        que.offer(new int[]{x, y});
+
+        while(!que.isEmpty()) {
+            int[] now = que.poll();
+            int nowX = now[0];
+            int nowY = now[1];
+            if(map[nowX][nowY] == 'P') {
+                count++;
+            }
+
+            for (int i = 0; i < 4; i++) {
+                int nx = nowX + dx[i];
+                int ny = nowY + dy[i];
+
+                if(nx < 0 || ny < 0 || nx >= map.length || ny >= map[0].length)
+                    continue;
+                if(map[nx][ny] != 'X' && !visited[nx][ny]) {
+                    que.offer(new int[]{nx, ny});
+                    visited[nx][ny] = true;
+                }
+            }
+        }
+    }
     public static void dfs(int x, int y) {
         visited[x][y] = true;
 
         if (map[x][y] == 'P') {
             count++;
+        }else if(map[x][y] == 'X') {
+            return;
         }
         for (int i = 0; i < 4; i++) {
             int nx = x + dx[i];

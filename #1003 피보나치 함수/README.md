@@ -1,6 +1,6 @@
 # <img width="20px"  src="https://d2gd6pc034wcta.cloudfront.net/tier/8.svg" class="solvedac-tier"> [피보나치 함수](https://www.acmicpc.net/problem/1003) 
 
-| 제출 번호 | 닉네임 | 채점 결과 | 메모리 | 시간 | 언어 | 코드 길이 |
+| 제출 번호 | 닉네임 | 채점결과 | 메모리 | 시간 | 언어 | 코드 길이 |
 |---|---|---|---|---|---|---|
 |58714641|jbin3031|맞았습니다!! |18512KB|240ms|Java 11|1493B|
 

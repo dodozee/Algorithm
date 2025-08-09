@@ -1,6 +1,6 @@
 # <img width="20px"  src="https://d2gd6pc034wcta.cloudfront.net/tier/4.svg" class="solvedac-tier"> [분산처리](https://www.acmicpc.net/problem/1009) 
 
-| 제출 번호 | 닉네임 | 채점 결과 | 메모리 | 시간 | 언어 | 코드 길이 |
+| 제출 번호 | 닉네임 | 채점결과 | 메모리 | 시간 | 언어 | 코드 길이 |
 |---|---|---|---|---|---|---|
 |57102635|jbin3031|맞았습니다!! |19424KB|292ms|Java 11|1587B|
 

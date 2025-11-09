@@ -1,6 +1,6 @@
 # <img width="20px"  src="https://d2gd6pc034wcta.cloudfront.net/tier/7.svg" class="solvedac-tier"> [보물](https://www.acmicpc.net/problem/1026) 
 
-| 제출 번호 | 닉네임 | 채점 결과 | 메모리 | 시간 | 언어 | 코드 길이 |
+| 제출번호 | 닉네임 | 채점 결과 | 메모리 | 시간 | 언어 | 코드 길이 |
 |---|---|---|---|---|---|---|
 |58931420|jbin3031|맞았습니다!! |14364KB|128ms|Java 11|1351B|
 

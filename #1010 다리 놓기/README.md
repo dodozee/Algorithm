@@ -1,6 +1,6 @@
 # <img width="20px"  src="https://d2gd6pc034wcta.cloudfront.net/tier/6.svg" class="solvedac-tier"> [다리 놓기](https://www.acmicpc.net/problem/1010) 
 
-| 제출 번호 | 닉네임 | 채점 결과 | 메모리 | 시간 | 언어 | 코드 길이 |
+| 제출 번호 | 닉네임 | 채점결과 | 메모리 | 시간 | 언어 | 코드 길이 |
 |---|---|---|---|---|---|---|
 |58253017|jbin3031|맞았습니다!! |16636KB|176ms|Java 11|1833B|
 
